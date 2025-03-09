@@ -1,8 +1,11 @@
-[gd_scene load_steps=60 format=4 uid="uid://b1kv7k5gtd554"]
+[gd_scene load_steps=63 format=4 uid="uid://b1kv7k5gtd554"]
 
 [ext_resource type="Script" uid="uid://1sd8w55egq2t" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_5erdv"]
+[ext_resource type="Script" uid="uid://dsv50qgm7w2va" path="res://game_manager.gd" id="1_a2ia3"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_qbrl8"]
+[ext_resource type="PackedScene" uid="uid://dctf4li1fp0ga" path="res://Scenes/game_UI.tscn" id="3_236hc"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="3_a2ia3"]
+[ext_resource type="PackedScene" uid="uid://brbviolob1hjc" path="res://Scenes/pause_menu.tscn" id="3_lwkuy"]
 [ext_resource type="Script" uid="uid://bhpqtad3d57j8" path="res://scripts/player.gd" id="5_a2ia3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a2ia3"]
@@ -397,9 +400,14 @@ indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 
 data = PackedVector3Array(-1.75, 1.25521, 2.75, -1.75, -1.25521, -2.75, 1.75, -1.25521, -2.75, -1.75, 1.25521, 2.75, 1.75, -1.25521, -2.75, 1.75, 1.25521, 2.75, -1.75, 1.25521, 2.75, -1.75, -1.25521, 2.75, -1.75, -1.25521, -2.75, 1.75, -1.25521, -2.75, -1.75, -1.25521, -2.75, -1.75, -1.25521, 2.75, 1.75, -1.25521, -2.75, -1.75, -1.25521, 2.75, 1.75, -1.25521, 2.75, 1.75, 1.25521, 2.75, 1.75, -1.25521, -2.75, 1.75, -1.25521, 2.75, 1.75, 1.25521, 2.75, 1.75, -1.25521, 2.75, -1.75, -1.25521, 2.75, 1.75, 1.25521, 2.75, -1.75, -1.25521, 2.75, -1.75, 1.25521, 2.75)
 
 [node name="MainLevel" type="Node3D"]
+script = ExtResource("1_a2ia3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a2ia3")
+
+[node name="In Game HUD" parent="." instance=ExtResource("3_236hc")]
+
+[node name="Pause menu" parent="." instance=ExtResource("3_lwkuy")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.928057, -0.287452, 0.236814, 0, 0.635849, 0.771813, -0.372437, -0.716287, 0.590105, 5.45988, 8.3098, 2.25653)
