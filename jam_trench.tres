@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="TrenchBroomGameConfig" load_steps=7 format=3 uid="uid://ci871us1maqcx"]
+
+[ext_resource type="Resource" uid="uid://b4xhdj0e16lop" path="res://addons/func_godot/game_config/trenchbroom/tb_face_tag_clip.tres" id="1_6mbby"]
+[ext_resource type="Resource" uid="uid://ca7377sfgj074" path="res://addons/func_godot/game_config/trenchbroom/tb_face_tag_skip.tres" id="2_50cj2"]
+[ext_resource type="Resource" uid="uid://bkjxc54mmdhbo" path="res://addons/func_godot/game_config/trenchbroom/tb_face_tag_origin.tres" id="3_p5h3j"]
+[ext_resource type="Resource" uid="uid://daljmwfvlla5d" path="res://jamFGD.tres" id="4_6mbby"]
+[ext_resource type="Texture2D" uid="uid://decwujsyhj0qy" path="res://addons/func_godot/icon32.png" id="5_rqe71"]
+[ext_resource type="Script" uid="uid://bg117tmwl11hx" path="res://addons/func_godot/src/trenchbroom/trenchbroom_game_config.gd" id="6_67c3q"]
+
+[resource]
+script = ExtResource("6_67c3q")
+export_file = false
+game_name = "dreamjam"
+icon = ExtResource("5_rqe71")
+map_formats = Array[Dictionary]([{
+"format": "Valve",
+"initialmap": "initial_valve.map"
+}, {
+"format": "Standard",
+"initialmap": "initial_standard.map"
+}, {
+"format": "Quake2",
+"initialmap": "initial_quake2.map"
+}, {
+"format": "Quake3"
+}])
+textures_root_folder = "textures"
+texture_exclusion_patterns = Array[String](["*_albedo", "*_ao", "*_emission", "*_height", "*_metallic", "*_normal", "*_orm", "*_roughness", "*_sss"])
+palette_path = "textures/palette.lmp"
+fgd_file = ExtResource("4_6mbby")
+entity_scale = "32"
+brush_tags = Array[Resource]([])
+brushface_tags = Array[Resource]([ExtResource("1_6mbby"), ExtResource("2_50cj2"), ExtResource("3_p5h3j")])
+default_uv_scale = Vector2(1, 1)
+game_config_version = 3
+metadata/_custom_type_script = "uid://bg117tmwl11hx"

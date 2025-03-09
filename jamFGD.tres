@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=5 format=3 uid="uid://daljmwfvlla5d"]
+
+[ext_resource type="Script" uid="uid://ius2bt2qux7p" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_6tr14"]
+[ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_gvekq"]
+[ext_resource type="Resource" uid="uid://cao02ee4bip0l" path="res://Entities/point/Lights/omni_light.tres" id="2_sugdg"]
+[ext_resource type="Resource" uid="uid://cc8ua2kflfrof" path="res://Entities/brush/Environment/Stairs.tres" id="3_0yq8f"]
+
+[resource]
+script = ExtResource("1_6tr14")
+export_file = false
+target_map_editor = 1
+fgd_name = "dreamjam"
+base_fgd_files = Array[Resource]([ExtResource("1_gvekq")])
+entity_definitions = Array[Resource]([ExtResource("2_sugdg"), ExtResource("3_0yq8f")])
+metadata/_custom_type_script = "uid://ius2bt2qux7p"

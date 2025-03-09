@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cj2bjfrph6nsd"
+path="res://.godot/imported/main_level.map-e18bdc0a5186b19e6c4accf94d69349b.tres"
+
+[deps]
+
+source_file="res://Map/main_level.map"
+dest_files=["res://.godot/imported/main_level.map-e18bdc0a5186b19e6c4accf94d69349b.tres"]
+
+[params]
+
