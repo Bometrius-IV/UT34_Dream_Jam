@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://b1kv7k5gtd554"]
+[gd_scene load_steps=59 format=4 uid="uid://b1kv7k5gtd554"]
 
 [ext_resource type="Script" uid="uid://1sd8w55egq2t" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_5erdv"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_qbrl8"]
@@ -15,22 +15,10 @@ background_mode = 2
 sky = SubResource("Sky_236hc")
 tonemap_mode = 2
 glow_enabled = true
-fog_mode = 1
-fog_density = 1.0
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.25
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5erdv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lwkuy"]
-
-[sub_resource type="TorusMesh" id="TorusMesh_gmjuu"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_ok16x"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_qbrl8"]
-height = 5.66602
-radius = 2.01318
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbrl8"]
 albedo_texture = ExtResource("3_a2ia3")
@@ -396,6 +384,10 @@ indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3loty"]
 data = PackedVector3Array(-1.75, 1.25521, 2.75, -1.75, -1.25521, -2.75, 1.75, -1.25521, -2.75, -1.75, 1.25521, 2.75, 1.75, -1.25521, -2.75, 1.75, 1.25521, 2.75, -1.75, 1.25521, 2.75, -1.75, -1.25521, 2.75, -1.75, -1.25521, -2.75, 1.75, -1.25521, -2.75, -1.75, -1.25521, -2.75, -1.75, -1.25521, 2.75, 1.75, -1.25521, -2.75, -1.75, -1.25521, 2.75, 1.75, -1.25521, 2.75, 1.75, 1.25521, 2.75, 1.75, -1.25521, -2.75, 1.75, -1.25521, 2.75, 1.75, 1.25521, 2.75, 1.75, -1.25521, 2.75, -1.75, -1.25521, 2.75, 1.75, 1.25521, 2.75, -1.75, -1.25521, 2.75, -1.75, 1.25521, 2.75)
 
+[sub_resource type="TorusMesh" id="TorusMesh_gmjuu"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ok16x"]
+
 [node name="MainLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -420,30 +412,6 @@ mesh = SubResource("CapsuleMesh_lwkuy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.502473, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/head"]
-
-[node name="spotlight" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -3)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="spotlight"]
-mesh = SubResource("TorusMesh_gmjuu")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="spotlight"]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
-mesh = SubResource("SphereMesh_ok16x")
-skeleton = NodePath("")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="spotlight"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-light_color = Color(1, 1, 0, 1)
-light_energy = 16.0
-spot_range = 10.0
-spot_attenuation = 0.8
-spot_angle = 30.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spotlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.20478, 0)
-shape = SubResource("CylinderShape3D_qbrl8")
 
 [node name="FuncGodotMap" type="Node3D" parent="."]
 script = ExtResource("1_5erdv")
@@ -660,5 +628,19 @@ collision_mask = 0
 [node name="entity_17_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_17_func_geo"]
 shape = SubResource("ConcavePolygonShape3D_3loty")
 
-[connection signal="body_entered" from="spotlight" to="Player" method="in_light"]
-[connection signal="body_exited" from="spotlight" to="Player" method="out_light"]
+[node name="Spotlight" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.9611, -3.32756)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Spotlight"]
+mesh = SubResource("TorusMesh_gmjuu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Spotlight"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+mesh = SubResource("SphereMesh_ok16x")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Spotlight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(1, 1, 0, 1)
+light_energy = 16.0
+spot_range = 10.0
+spot_attenuation = 0.8
