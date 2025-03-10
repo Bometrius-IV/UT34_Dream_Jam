@@ -399,8 +399,9 @@ indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3loty"]
 data = PackedVector3Array(-1.75, 1.25521, 2.75, -1.75, -1.25521, -2.75, 1.75, -1.25521, -2.75, -1.75, 1.25521, 2.75, 1.75, -1.25521, -2.75, 1.75, 1.25521, 2.75, -1.75, 1.25521, 2.75, -1.75, -1.25521, 2.75, -1.75, -1.25521, -2.75, 1.75, -1.25521, -2.75, -1.75, -1.25521, -2.75, -1.75, -1.25521, 2.75, 1.75, -1.25521, -2.75, -1.75, -1.25521, 2.75, 1.75, -1.25521, 2.75, 1.75, 1.25521, 2.75, 1.75, -1.25521, -2.75, 1.75, -1.25521, 2.75, 1.75, 1.25521, 2.75, 1.75, -1.25521, 2.75, -1.75, -1.25521, 2.75, 1.75, 1.25521, 2.75, -1.75, -1.25521, 2.75, -1.75, 1.25521, 2.75)
 
-[node name="MainLevel" type="Node3D"]
+[node name="MainLevel" type="Node3D" node_paths=PackedStringArray("spot_loc")]
 script = ExtResource("1_a2ia3")
+spot_loc = [NodePath("spotpoints/point_1"), NodePath("spotpoints/point_2"), NodePath("spotpoints/point_3")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a2ia3")
@@ -452,6 +453,17 @@ spot_angle = 30.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spotlight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.20478, 0)
 shape = SubResource("CylinderShape3D_qbrl8")
+
+[node name="spotpoints" type="Node3D" parent="."]
+
+[node name="point_1" type="Node3D" parent="spotpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -3)
+
+[node name="point_2" type="Node3D" parent="spotpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2816, 8.52417, -3)
+
+[node name="point_3" type="Node3D" parent="spotpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2832, 8.52417, -3)
 
 [node name="FuncGodotMap" type="Node3D" parent="."]
 script = ExtResource("1_5erdv")
