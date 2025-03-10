@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brbviolob1hjc"]
+[gd_scene load_steps=12 format=3 uid="uid://brbviolob1hjc"]
 
 [ext_resource type="FontFile" uid="uid://c7yt8i7uy4bel" path="res://textures/fonts/Roboto-VariableFont_wdth,wght.ttf" id="1_bpi0q"]
 [ext_resource type="Script" uid="uid://bt6f47ismqv2j" path="res://scripts/pause_menu.gd" id="1_vmyb1"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dutip72dl002r" path="res://textures/special/origin.png" id="4_sjs17"]
 [ext_resource type="LabelSettings" uid="uid://b5bcy41qe5cki" path="res://textures/button_text.tres" id="5_myy0f"]
 [ext_resource type="StyleBox" uid="uid://cge86l20ly4fy" path="res://textures/game_UI_border.tres" id="7_sjs17"]
+[ext_resource type="Texture2D" uid="uid://cck01c7y0qc8y" path="res://textures/button_idle.png" id="8_stj27"]
+[ext_resource type="Texture2D" uid="uid://bkmaus6fy7mcv" path="res://textures/button_hover.png" id="9_ix48p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u8tnp"]
 font = ExtResource("1_bpi0q")
@@ -146,8 +148,8 @@ offset_top = -116.0
 offset_right = 230.0
 offset_bottom = -16.0
 grow_vertical = 0
-texture_normal = ExtResource("4_sjs17")
-texture_hover = ExtResource("3_myy0f")
+texture_normal = ExtResource("8_stj27")
+texture_hover = ExtResource("9_ix48p")
 ignore_texture_size = true
 stretch_mode = 1
 
@@ -178,8 +180,8 @@ offset_right = -28.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("4_sjs17")
-texture_hover = ExtResource("3_myy0f")
+texture_normal = ExtResource("8_stj27")
+texture_hover = ExtResource("9_ix48p")
 ignore_texture_size = true
 stretch_mode = 1
 
