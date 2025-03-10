@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func unpause() -> void:
 	gm.is_paused = false
+	gm.play_audio()
 
 func load_menu():
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

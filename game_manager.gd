@@ -6,7 +6,9 @@ extends Node
 @onready var game_over =$"Game Over Screen"
 @onready var hud = $"In Game HUD"
 @onready var spot = $spotlight
+@onready var spot_model =$spotlight/spot_model
 @onready var spot_detect = $spotlight/CollisionShape3D
+@onready var spot_sound = $spotlight/AudioStreamPlayer3D
 @onready var world_light =$DirectionalLight3D
 var spot_open: float
 var spot_change: float
@@ -36,6 +38,9 @@ func change_spot():
 			past[0]=pot_spot
 			changed=true
 
+func play_audio():
+	spot_sound.playing = true
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pause.set_visible(false)
@@ -45,7 +50,7 @@ func _ready() -> void:
 	is_changing = true
 	spot_open = set_open
 	spot_change = set_change
-	spot.set_visible(false)
+	spot_model.set_visible(false)
 	spot_detect.set_disabled(true)
 	is_game_up= true
 	
@@ -56,6 +61,7 @@ func _process(delta: float) -> void:
 	if is_game_up:
 		if Input.is_action_just_pressed("pause"):
 			is_paused = !is_paused
+			spot_sound.playing = !spot_sound.playing
 		if play.inLight && !is_paused:
 			play.points += (pps*delta)
 		if is_paused:
@@ -69,7 +75,7 @@ func _process(delta: float) -> void:
 				spot_open -= delta
 				if spot_open<= 0:
 					is_changing = true
-					spot.set_visible(false)
+					spot_model.set_visible(false)
 					world_light.set_visible(true)
 					spot_detect.set_disabled(true)
 					change_spot()
@@ -78,12 +84,13 @@ func _process(delta: float) -> void:
 				spot_change -= delta
 				if spot_change<= 0:
 					is_changing = false
-					spot.set_visible(true)
+					spot_model.set_visible(true)
 					world_light.set_visible(false)
 					spot_detect.set_disabled(false)
 					spot_open = set_open
 	if !is_game_up:
 		is_paused = true
+		spot_sound.playing = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		hud.set_visible(false)
 		game_over.update_score()

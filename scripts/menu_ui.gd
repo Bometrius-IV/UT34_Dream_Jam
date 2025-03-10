@@ -2,12 +2,14 @@ extends Control
 
 @onready var menu = $"Main Menu Screen"
 @onready var help = $"Help Screen"
+@onready var cred = $"Credits Screen"
 @onready var quit = $"Quit Confirm"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	help.set_visible(false)
 	quit.set_visible(false)
+	cred.set_visible(false)
 	menu.set_visible(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -32,3 +34,11 @@ func main_to_confirm():
 func confirm_to_main():
 	menu.set_visible(true)
 	quit.set_visible(false)
+
+func main_to_cred():
+	menu.set_visible(false)
+	cred.set_visible(true)
+
+func cred_to_main():
+	menu.set_visible(true)
+	cred.set_visible(false)
