@@ -5,6 +5,7 @@ extends Node
 @onready var pause= $"Pause menu"
 @onready var spot = $spotlight
 @onready var spot_detect = $spotlight/CollisionShape3D
+@onready var world_light =$DirectionalLight3D
 var spot_open= 5.0
 var spot_change= 3.0
 var is_changing= false;
@@ -30,6 +31,10 @@ func change_spot():
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pause.set_visible(false)
+	change_spot()
+	is_changing = true
+	spot.set_visible(false)
+	spot_detect.set_disabled(true)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,6 +53,7 @@ func _process(delta: float) -> void:
 			if spot_open<= 0:
 				is_changing = true
 				spot.set_visible(false)
+				world_light.set_visible(true)
 				spot_detect.set_disabled(true)
 				change_spot()
 				spot_change = 3.0
@@ -56,5 +62,6 @@ func _process(delta: float) -> void:
 			if spot_change<= 0:
 				is_changing = false
 				spot.set_visible(true)
+				world_light.set_visible(false)
 				spot_detect.set_disabled(false)
 				spot_open = 5.0
