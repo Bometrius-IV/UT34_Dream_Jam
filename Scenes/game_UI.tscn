@@ -2,28 +2,19 @@
 
 [ext_resource type="FontFile" uid="uid://c7yt8i7uy4bel" path="res://textures/fonts/Roboto-VariableFont_wdth,wght.ttf" id="1_iib37"]
 [ext_resource type="Script" uid="uid://cg6hbnvtddk63" path="res://scripts/game_ui.gd" id="1_ybgp4"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybgp4"]
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsktf"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[ext_resource type="StyleBox" uid="uid://cge86l20ly4fy" path="res://textures/game_UI_border.tres" id="2_wsktf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fpypv"]
 font = ExtResource("1_iib37")
 font_size = 30
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8if36"]
+font = ExtResource("1_iib37")
+font_size = 30
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="In Game HUD" type="Control"]
 layout_mode = 3
@@ -39,46 +30,73 @@ script = ExtResource("1_ybgp4")
 layout_mode = 0
 offset_left = 31.0
 offset_top = 22.0
-offset_right = 362.0
-offset_bottom = 106.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ybgp4")
+offset_right = 291.0
+offset_bottom = 102.0
+theme_override_styles/panel = ExtResource("2_wsktf")
 
-[node name="Point Icon" type="Panel" parent="Point info"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 6.0
-offset_top = -32.5
-offset_right = 73.0
-offset_bottom = 32.5
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wsktf")
-
-[node name="Point Image" type="TextureRect" parent="Point info/Point Icon"]
+[node name="Label" type="Label" parent="Point info"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -18.0
-offset_top = -20.0
-offset_right = 22.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Point info"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 86.0
+offset_left = -116.0
 offset_top = -30.0
-offset_right = 318.0
+offset_right = 116.0
 offset_bottom = 30.0
+grow_horizontal = 2
 grow_vertical = 2
 text = "Points: 0000000"
 label_settings = SubResource("LabelSettings_fpypv")
 vertical_alignment = 1
+
+[node name="Timer" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -292.0
+offset_top = 22.0
+offset_right = -32.0
+offset_bottom = 102.0
+grow_horizontal = 0
+theme_override_styles/panel = ExtResource("2_wsktf")
+
+[node name="timer_text" type="Label" parent="Timer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Time: 00:00"
+label_settings = SubResource("LabelSettings_8if36")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 7.0
+offset_right = 60.0
+offset_bottom = 127.0
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("2_wsktf")
+
+[node name="lightstatus" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2

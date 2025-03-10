@@ -1,0 +1,349 @@
+[gd_scene load_steps=12 format=3 uid="uid://butxnrjk4ds2d"]
+
+[ext_resource type="Script" uid="uid://dufrhbwqfjveh" path="res://scripts/menu_ui.gd" id="1_q32wx"]
+[ext_resource type="FontFile" uid="uid://c7yt8i7uy4bel" path="res://textures/fonts/Roboto-VariableFont_wdth,wght.ttf" id="2_ofcii"]
+[ext_resource type="Texture2D" uid="uid://xsx1uif6i1oq" path="res://icon.svg" id="3_xirvs"]
+[ext_resource type="Texture2D" uid="uid://dhmu0toe1itnr" path="res://textures/special/clip.png" id="4_g4j4k"]
+[ext_resource type="LabelSettings" uid="uid://b5bcy41qe5cki" path="res://textures/button_text.tres" id="5_j1rrx"]
+[ext_resource type="Texture2D" uid="uid://dutip72dl002r" path="res://textures/special/origin.png" id="6_hntem"]
+[ext_resource type="StyleBox" uid="uid://cge86l20ly4fy" path="res://textures/game_UI_border.tres" id="7_8eotw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4qkpy"]
+font = ExtResource("2_ofcii")
+font_size = 111
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n6cg6"]
+font = ExtResource("2_ofcii")
+font_size = 30
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ns6mx"]
+font = ExtResource("2_ofcii")
+font_size = 40
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1xa2"]
+font = ExtResource("2_ofcii")
+font_size = 40
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Menu_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q32wx")
+
+[node name="Main Menu Screen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Main Menu Screen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -527.5
+offset_right = 527.5
+offset_bottom = 211.0
+grow_horizontal = 2
+text = "Chasing the Spotlight"
+label_settings = SubResource("LabelSettings_4qkpy")
+
+[node name="Play Button" type="TextureButton" parent="Main Menu Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -94.0
+offset_right = 194.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_xirvs")
+texture_hover = ExtResource("4_g4j4k")
+ignore_texture_size = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Main Menu Screen/Play Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+label_settings = ExtResource("5_j1rrx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Help Button" type="TextureButton" parent="Main Menu Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 26.0
+offset_right = 194.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_hntem")
+texture_hover = ExtResource("4_g4j4k")
+ignore_texture_size = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Main Menu Screen/Help Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Help"
+label_settings = ExtResource("5_j1rrx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit Button" type="TextureButton" parent="Main Menu Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 146.0
+offset_right = 194.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_hntem")
+texture_hover = ExtResource("4_g4j4k")
+ignore_texture_size = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Main Menu Screen/Quit Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = ExtResource("5_j1rrx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Help Screen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Return Button" type="TextureButton" parent="Help Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 146.0
+offset_right = 194.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_hntem")
+texture_hover = ExtResource("4_g4j4k")
+ignore_texture_size = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Help Screen/Return Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return"
+label_settings = ExtResource("5_j1rrx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Help Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -436.5
+offset_top = -305.5
+offset_right = 436.5
+offset_bottom = 131.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("7_8eotw")
+
+[node name="help text" type="Label" parent="Help Screen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.5
+offset_top = -142.5
+offset_right = 291.5
+offset_bottom = 219.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You have three minutes to gain as many points by standing in the spotlight.
+
+The spotlight will occasionally dissappear and reappear at different locations.
+
+Movement: W,A,S,D or UP, DOWN,LEFT, RIGHT
+Look: Mouse Movement"
+label_settings = SubResource("LabelSettings_n6cg6")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="Help Screen/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.0
+offset_right = 138.0
+offset_bottom = 71.0
+grow_horizontal = 2
+text = "Help/Controls"
+label_settings = SubResource("LabelSettings_ns6mx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit Confirm" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Quit Confirm"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.0
+offset_top = -178.0
+offset_right = 269.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("7_8eotw")
+
+[node name="Label" type="Label" parent="Quit Confirm/Panel"]
+layout_mode = 0
+offset_right = 539.0
+offset_bottom = 178.0
+text = "Are you sure you want to quit?"
+label_settings = SubResource("LabelSettings_f1xa2")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Confirm Button" type="TextureButton" parent="Quit Confirm/Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -116.0
+offset_right = 230.0
+offset_bottom = -16.0
+grow_vertical = 0
+texture_normal = ExtResource("6_hntem")
+texture_hover = ExtResource("4_g4j4k")
+ignore_texture_size = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Quit Confirm/Panel/Confirm Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Yes"
+label_settings = ExtResource("5_j1rrx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Deny Button" type="TextureButton" parent="Quit Confirm/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -228.0
+offset_top = -116.0
+offset_right = -28.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("6_hntem")
+texture_hover = ExtResource("4_g4j4k")
+ignore_texture_size = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Quit Confirm/Panel/Deny Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "No"
+label_settings = ExtResource("5_j1rrx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Main Menu Screen/Play Button" to="." method="load_level"]
+[connection signal="pressed" from="Main Menu Screen/Help Button" to="." method="main_to_help"]
+[connection signal="pressed" from="Main Menu Screen/Quit Button" to="." method="main_to_confirm"]
+[connection signal="pressed" from="Help Screen/Return Button" to="." method="help_to_main"]
+[connection signal="pressed" from="Quit Confirm/Panel/Confirm Button" to="." method="quit_game"]
+[connection signal="pressed" from="Quit Confirm/Panel/Deny Button" to="." method="confirm_to_main"]

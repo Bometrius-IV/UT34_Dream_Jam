@@ -5,7 +5,7 @@ const SPEED = 10.0
 const JUMP_VELOCITY = 4.5
 const sens= 0.005
 @export var inLight= false;
-var points=0.0
+@export var points=0.0
 
 
 @onready var head = $head
@@ -21,7 +21,7 @@ func out_light(body: Node3D):
 		inLight=false
 
 func _ready():
-	points=0;
+	points=0.0;
 	
 	
 func _unhandled_input(event: InputEvent) -> void:
