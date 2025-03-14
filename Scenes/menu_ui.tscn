@@ -41,7 +41,6 @@ grow_vertical = 2
 script = ExtResource("1_q32wx")
 
 [node name="Main Menu Screen" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -249,10 +248,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -354.5
-offset_top = -163.0
-offset_right = 354.5
-offset_bottom = 199.0
+offset_left = -402.5
+offset_top = -162.0
+offset_right = 402.5
+offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "You have three minutes to gain as many points by standing in the spotlight.
@@ -260,6 +259,7 @@ text = "You have three minutes to gain as many points by standing in the spotlig
 The spotlight will occasionally dissappear and reappear at different locations, but a sound will guide you.
 
 Movement: W,A,S,D or UP, DOWN,LEFT, RIGHT
+Jump: Space Bar
 Look: Mouse Movement"
 label_settings = SubResource("LabelSettings_n6cg6")
 horizontal_alignment = 1

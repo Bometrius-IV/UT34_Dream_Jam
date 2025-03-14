@@ -6,13 +6,13 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_fpypv"]
 font = ExtResource("1_iib37")
-font_size = 30
+font_size = 35
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8if36"]
 font = ExtResource("1_iib37")
-font_size = 30
+font_size = 35
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
@@ -27,39 +27,41 @@ mouse_filter = 2
 script = ExtResource("1_ybgp4")
 
 [node name="Point info" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 22.0
-offset_right = 291.0
-offset_bottom = 102.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.027
+anchor_top = 0.034
+anchor_right = 0.253
+anchor_bottom = 0.157
+offset_left = -0.104
+offset_top = -0.0320015
+offset_right = -0.456024
+offset_bottom = 0.264
 theme_override_styles/panel = ExtResource("2_wsktf")
 
 [node name="Label" type="Label" parent="Point info"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -30.0
-offset_right = 116.0
-offset_bottom = 30.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Points: 0000000"
 label_settings = SubResource("LabelSettings_fpypv")
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -292.0
-offset_top = 22.0
-offset_right = -32.0
-offset_bottom = 102.0
+anchors_preset = -1
+anchor_left = 0.747
+anchor_top = 0.034
+anchor_right = 0.972
+anchor_bottom = 0.157
+offset_left = -0.544067
+offset_top = -0.0320015
+offset_right = 0.255981
+offset_bottom = 0.264
 grow_horizontal = 0
 theme_override_styles/panel = ExtResource("2_wsktf")
 
