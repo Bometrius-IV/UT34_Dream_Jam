@@ -1,14 +1,16 @@
 extends Control
 
+#pull child nodes and main node
 @onready var resume = $"Resume Button"
 @onready var quit = $"Quit Button"
 @onready var confirm = $"return confirm"
 @onready var gm = get_tree().current_scene
 
 func _ready() -> void:
+	#hide confirm window
 	confirm.set_visible(false)
 
-func unpause() -> void:
+func unpause() -> void: #unpause the game when hitting the resume button
 	gm.is_paused = false
 	gm.play_audio()
 
