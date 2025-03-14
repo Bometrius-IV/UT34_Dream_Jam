@@ -10,6 +10,7 @@ extends Node
 @onready var spot_detect = $spotlight/CollisionShape3D
 @onready var spot_sound = $spotlight/AudioStreamPlayer3D
 @onready var world_light =$DirectionalLight3D
+
 var spot_open: float
 var spot_change: float
 @export var set_open = 10.0
@@ -23,20 +24,38 @@ var is_game_up= true
 @export var is_paused = false
 @export var spot_loc: Array[Node3D]
 var past = [0,0]
+var avail_spot = []
+var last_spot = 0
 
 func change_spot():
 	var changed = false
 	while !changed:
-		var pot_spot = randi_range(1, spot_loc.size())
-		var used= false
-		for n in past.size():
-			if pot_spot == past[n]:
-				used = true
-		if !used:
-			spot.position = spot_loc[pot_spot-1].position
-			past[1]=past[0]
-			past[0]=pot_spot
-			changed=true
+		if !avail_spot.is_empty():
+			var pot_spot = randi_range(1, avail_spot.size())
+			spot.position = spot_loc[avail_spot[pot_spot-1]].position
+			avail_spot[pot_spot] = last_spot
+			last_spot = pot_spot
+			changed = true
+		if avail_spot.is_empty():
+			var pot_spot = randi_range(1, spot_loc.size())
+			for n in range(1,spot_loc.size()+1):
+				if n != pot_spot:
+					avail_spot.append(n)
+					spot.position = spot_loc[pot_spot-1].position
+					last_spot = pot_spot
+					changed = true
+	#var changed = false
+	#while !changed:
+		#var pot_spot = randi_range(1, spot_loc.size())
+		#var used= false
+		#for n in past.size():
+			#if pot_spot == past[n]:
+				#used = true
+		#if !used:
+			#spot.position = spot_loc[pot_spot-1].position
+			#past[1]=past[0]
+			#past[0]=pot_spot
+			#changed=true
 
 func play_audio():
 	spot_sound.playing = true
