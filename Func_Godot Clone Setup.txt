@@ -1,0 +1,17 @@
+1. Download Trenchbroom and Godot if you haven't already
+
+2. Download or clone the repository by selecting the code button on the GitHub page
+
+3. Import the project into Godot by selecting the root folder (This should just be the folder holding the assets that should be named "UT34_Dream_Jam" or something similar)
+
+4. Open the project and run the game in editor at least once. (it doesn't matter if it's just hitting the exit button and confirming or playing through the game since you'll need a specific file that only get's generated after running the project in the editor in order to have Func_Godot play nice)
+
+5. Open the func_godot_local_config.tres file in addons/func_godot by double clicking it and change these parameters:
+Change fgd Output Folder and Trenchbroom Game Config Folder to a folder in the games folder in trenchbroom (the name of the folder can be anything, but as long as you have it placed in TrenchBroom-Win64-v2024.2-Release/games it should be OK)
+Change Map Editor Game Path to the path of the root folder of the project (This will be the same as the folder you used to import the project into Godot)
+
+6. Hit Export Func Godot Settings in func_godot_local_config.tres, Export File in jamFGD.tres, and Export File in jam_trench.tres in that order.
+
+7. To make sure steps 1-6 worked, open up Trenchbroom and hit browse to open up main_level.map in the Map folder in the project. If everything worked then the map geometry should load in properly, but without any textures.
+
+8. In order to have the textures load in, select view->preferences... and Select dreamjam in the game list (Trenchbroom will read the info as such regardless of the game folder it's held in). Set the game path to the root folder (just like with importing), select apply, and close and reopen Trenchbroom.
