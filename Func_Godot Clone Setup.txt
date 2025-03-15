@@ -1,6 +1,6 @@
 1. Download Trenchbroom and Godot if you haven't already
 
-2. Download or clone the repository by selecting the code button on the GitHub page
+2. Download the repository by selecting the code button on the GitHub page
 
 3. Import the project into Godot by selecting the root folder (This should just be the folder holding the assets that should be named "UT34_Dream_Jam" or something similar)
 
