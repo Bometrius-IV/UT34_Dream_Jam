@@ -1,29 +1,40 @@
 extends CharacterBody3D
 
-
+#player speed, jump velocity, and mouse sensitivity
 const SPEED = 10.0
 const JUMP_VELOCITY = 4.5
 const sens= 0.005
+
+#bool detecting if the player is under the spotlight and the points variable
+#Would be better in the game manager script in hindsight
+#in order to decouple game logic from the player
 @export var inLight= false;
 @export var points=0.0
 
-
+#Pulling the child nodes for camer movement and root node from MainLevel
 @onready var head = $head
 @onready var camera = $head/Camera3D
 @onready var gm = get_tree().current_scene
 
+
+#function that marks the player as inside of the spotlight
 func in_light(body: Node3D):
 	if body == self:
 		inLight=true
 
+#function that marks the player outside of the spotlight
 func out_light(body: Node3D):
 	if body == self:
 		inLight=false
+#These two functions would also be better placed in game manager
+#since these relate to the gameplay logic
+
 
 func _ready():
-	points=0.0;
-	
-	
+	points=0.0 #set's points to zero
+
+
+#deals with mouse look in game as long as the game isn't paused
 func _unhandled_input(event: InputEvent) -> void:
 	if !gm.is_paused:
 		if event is InputEventMouseMotion:
@@ -31,6 +42,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotate_x(-event.relative.y * sens)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
+#deals with jump physics as long as the game ins't paused
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if !gm.is_paused:

@@ -16,6 +16,8 @@ func _ready() -> void:
 	#display the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+#Functions made to be linked with the pressed() signal for the menu buttons
+
 #change to the MainLevel Scene
 func load_level():
 	get_tree().change_scene_to_file("res://Scenes/main_level.tscn")

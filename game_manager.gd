@@ -46,7 +46,6 @@ var last_spot = 0
 
 func change_spot():
 	#new spotlight logic based on Alejandro's suggested change
-	
 	if !avail_spot.is_empty(): #Once avail_spot is full
 		var pot_spot = randi_range(0, avail_spot.size()-1) #choose between 0 and avail_spot size-1
 		spot.position = spot_loc[avail_spot[pot_spot]-1].position #change spotlight position to rolled spot
@@ -133,6 +132,11 @@ func _process(delta: float) -> void:
 					spot_detect.set_disabled(false) #enable the detection area
 					spot_open = set_open #reset the active timer
 	if !is_game_up: #when the game is over
+		#Quick note about this: This is a bad way to code this.
+		#while it still works as intended 
+		#this would be better placed in the if check when the timer hits zero
+		#There's definitely other areas where I coded logic similar to this
+		#but this was the most noticable and easiest to point out
 		is_paused = true #pause the game
 		spot_sound.playing = false #stop playing the audio
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) #display the mouse
